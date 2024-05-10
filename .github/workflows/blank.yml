@@ -1,4 +1,4 @@
-name: Earth Kernel
+name: Kernel Builder
 
 on:
   workflow_dispatch:
@@ -23,7 +23,7 @@ jobs:
       - name: Build Kernel
         run: |
           cd $GITHUB_WORKSPACE
-          sudo bash Test.sh
+          sudo bash build.sh
           sudo chmod -R 0777 ./*
 
       - name: Upload to Release
