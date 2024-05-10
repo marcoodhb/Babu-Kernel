@@ -23,7 +23,7 @@ jobs:
       - name: Build Kernel
         run: |
           cd $GITHUB_WORKSPACE
-          sudo bash build.sh
+          sudo bash Test.sh
           sudo chmod -R 0777 ./*
 
       - name: Upload to Release
