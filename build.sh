@@ -8,7 +8,7 @@ CLANG_DIR="$WORKDIR/Clang/bin"
 
 # Kernel Source
 KERNEL_NAME="LKernel"
-KERNEL_GIT="https://github.com/picasso09/kernel-earth-S-OSS.git"
+KERNEL_GIT="https://github.com/LineageOS/android_kernel_xiaomi_earth.git"
 KERNEL_BRANCH="lineage-21"
 KERNEL_DIR="$WORKDIR/$KERNEL_NAME"
 
