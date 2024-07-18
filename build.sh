@@ -13,7 +13,7 @@ KERNEL_BRANCH="lineage-21"
 KERNEL_DIR="$WORKDIR/$KERNEL_NAME"
 
 # Anykernel3
-ANYKERNEL3_GIT="https://github.com/arunv-dev/AnyKernel3.git"
+ANYKERNEL3_GIT="https://github.com/osm0sis/AnyKernel3.git"
 ANYKERNEL3_BRANCH="main"
 
 # Magiskboot
