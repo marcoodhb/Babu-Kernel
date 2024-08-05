@@ -8,8 +8,8 @@ CLANG_DIR="$WORKDIR/Clang/bin"
 
 # Kernel Source
 KERNEL_NAME="XKernel"
-KERNEL_GIT="https://github.com/MiCode/Xiaomi_Kernel_OpenSource.git"
-KERNEL_BRANCH="fire-t-oss"
+KERNEL_GIT="https://github.com/XeroMz69/fire-kernel-tree.git"
+KERNEL_BRANCH="main"
 KERNEL_DIR="$WORKDIR/$KERNEL_NAME"
 
 # Anykernel3
