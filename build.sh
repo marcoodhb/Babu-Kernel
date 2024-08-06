@@ -90,7 +90,9 @@ HOSTAR=llvm-ar \
 HOSTLD=ld.lld \
 HOSTCC=clang \
 HOSTCXX=clang++ \
-LLVM=1"
+LLVM=1 \
+LTO=full"
+
 
 # LINUX KERNEL VERSION
 rm -rf out
