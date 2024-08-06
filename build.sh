@@ -124,6 +124,7 @@ Build Configs
 - Device: $DEVICE_CODE
 - Kernel Version: $KERNEL_VERSION
 - Build Time: $(TZ='Asia/Jakarta' date +"%Y-%m-%d %H:%M:%S")
+- KSU Implemented
 " >> $WORKDIR/AnyKernel3/banner
 
 # Pack File
