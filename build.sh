@@ -9,7 +9,7 @@ CLANG_DIR="$WORKDIR/Clang/bin"
 # Kernel Source
 KERNEL_NAME="XKernel"
 KERNEL_GIT="https://github.com/XeroMz69/Bumi-Kernel-Tree.git"
-KERNEL_BRANCH="main"
+KERNEL_BRANCH="lineage-21"
 KERNEL_DIR="$WORKDIR/$KERNEL_NAME"
 
 # Anykernel3
