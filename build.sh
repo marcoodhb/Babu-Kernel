@@ -8,8 +8,8 @@ CLANG_DIR="$WORKDIR/Clang/bin"
 
 # Kernel Source
 KERNEL_NAME="XKernel"
-KERNEL_GIT="https://github.com/XeroMz69/Bumi-Kernel-Tree.git"
-KERNEL_BRANCH="lineage-21"
+KERNEL_GIT="https://github.com/XeroMz69/Fire-Kernel-Tree.git"
+KERNEL_BRANCH="main"
 KERNEL_DIR="$WORKDIR/$KERNEL_NAME"
 
 # Anykernel3
@@ -22,8 +22,8 @@ MAGISKBOOT="$WORKDIR/magiskboot/magiskboot"
 ORIGIN_BOOTIMG_DLINK="https://github.com/Jiovanni-dump/redmi_earth_dump/blob/missi_phone_global-user-13-TP1A.220624.014-V14.0.4.0.TCVMIXM-release-keys/boot.img"
 
 # Build
-DEVICE_CODENAME="earth"
-DEVICE_DEFCONFIG="earth_defconfig"
+DEVICE_CODENAME="fire"
+DEVICE_DEFCONFIG="fire_defconfig"
 DEVICE_DEFCONFIG_FILE="$KERNEL_DIR/arch/arm64/configs/$DEVICE_DEFCONFIG"
 
 IMAGE_GZ="$KERNEL_DIR/out/arch/arm64/boot/Image.gz"
