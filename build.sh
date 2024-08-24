@@ -23,7 +23,7 @@ ORIGIN_BOOTIMG_DLINK="https://github.com/Jiovanni-dump/redmi_earth_dump/blob/mis
 
 # Build
 DEVICE_CODENAME="fog"
-DEVICE_DEFCONFIG="fog-perf_defconfig"
+DEVICE_DEFCONFIG="vendor/fog-perf_defconfig"
 DEVICE_DEFCONFIG_FILE="$KERNEL_DIR/arch/arm64/configs/vendor/$DEVICE_DEFCONFIG"
 
 IMAGE_GZ="$KERNEL_DIR/out/arch/arm64/boot/Image.gz"
