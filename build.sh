@@ -8,8 +8,8 @@ CLANG_DIR="$WORKDIR/Clang/bin"
 
 # Kernel Source
 KERNEL_NAME="XKernel"
-KERNEL_GIT="https://github.com/r0ddty/kernel_xiaomi_fog.git"
-KERNEL_BRANCH="main"
+KERNEL_GIT="https://github.com/XeroMz69/Bumi-Kernel-Tree.git"
+KERNEL_BRANCH="lineage"
 KERNEL_DIR="$WORKDIR/$KERNEL_NAME"
 
 # Anykernel3
@@ -22,9 +22,9 @@ MAGISKBOOT="$WORKDIR/magiskboot/magiskboot"
 ORIGIN_BOOTIMG_DLINK="https://github.com/Jiovanni-dump/redmi_earth_dump/blob/missi_phone_global-user-13-TP1A.220624.014-V14.0.4.0.TCVMIXM-release-keys/boot.img"
 
 # Build
-DEVICE_CODENAME="fog"
-DEVICE_DEFCONFIG="vendor/fog-perf_defconfig"
-DEVICE_DEFCONFIG_FILE="$KERNEL_DIR/arch/arm64/configs/vendor/$DEVICE_DEFCONFIG"
+DEVICE_CODENAME="earth"
+DEVICE_DEFCONFIG="earth_defconfig"
+DEVICE_DEFCONFIG_FILE="$KERNEL_DIR/arch/arm64/configs/$DEVICE_DEFCONFIG"
 
 IMAGE_GZ="$KERNEL_DIR/out/arch/arm64/boot/Image.gz"
 IMAGE_GZ_DTB="$KERNEL_DIR/out/arch/arm64/boot/Image.gz-dtb"
@@ -59,12 +59,12 @@ cd $KERNEL_DIR
 KERNEL_HEAD_HASH=$(git log --pretty=format:'%H' -1)
 
 # Patching the KernelSU
-curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
-echo "
-CONFIG_KPROBES=y
-CONFIG_HAVE_KPROBES=y
-CONFIG_KPROBE_EVENTS=y
-" >> $DEVICES_DEFCONFIG
+# curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
+# echo "
+# CONFIG_KPROBES=y
+# CONFIG_HAVE_KPROBES=y
+# CONFIG_KPROBE_EVENTS=y
+# " >> $DEVICES_DEFCONFIG
 
 # Build Kernel
 echo "Started Compilation"
