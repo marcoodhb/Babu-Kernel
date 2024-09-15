@@ -9,7 +9,7 @@ CLANG_DIR="$WORKDIR/Clang/bin"
 # Kernel Source
 KERNEL_NAME="XKernel"
 KERNEL_GIT="https://github.com/XeroMz69/Bumi-Kernel-Tree.git"
-KERNEL_BRANCH="lineage"
+KERNEL_BRANCH="lineage-21"
 KERNEL_DIR="$WORKDIR/$KERNEL_NAME"
 
 # Anykernel3
@@ -97,8 +97,6 @@ LTO=full"
 # LINUX KERNEL VERSION
 rm -rf out
 make O=out $args $DEVICE_DEFCONFIG
-make clean
-make mrproper
 KERNEL_VERSION=$(make O=out $args kernelversion | grep "4.19")
 echo "LINUX KERNEL VERSION : $KERNEL_VERSION"
 make O=out $args -j"$(nproc --all)" | tee "$WORKDIR/out/build.log"
