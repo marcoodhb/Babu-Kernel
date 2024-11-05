@@ -8,8 +8,8 @@ CLANG_DIR="$WORKDIR/Clang/bin"
 
 # Kernel Source
 KERNEL_NAME="XKernel"
-KERNEL_GIT="https://github.com/XeroMz69/Bumi-Kernel-Tree.git"
-KERNEL_BRANCH="lineage-21"
+KERNEL_GIT="https://github.com/Redmi12C-Dev/android_kernel_xiaomi_earth.git"
+KERNEL_BRANCH="ksu"
 KERNEL_DIR="$WORKDIR/$KERNEL_NAME"
 
 # Anykernel3
