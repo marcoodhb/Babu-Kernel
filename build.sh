@@ -58,13 +58,13 @@ git clone --depth=1 $KERNEL_GIT -b $KERNEL_BRANCH $KERNEL_DIR
 cd $KERNEL_DIR
 KERNEL_HEAD_HASH=$(git log --pretty=format:'%H' -1)
 
-# Patching the KernelSU
-# curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
-# echo "
-# CONFIG_KPROBES=y
-# CONFIG_HAVE_KPROBES=y
-# CONFIG_KPROBE_EVENTS=y
-# " >> $DEVICES_DEFCONFIG
+Patching the KernelSU
+curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
+echo "
+CONFIG_KPROBES=y
+CONFIG_HAVE_KPROBES=y
+CONFIG_KPROBE_EVENTS=y
+" >> $DEVICES_DEFCONFIG
 
 # Build Kernel
 echo "Started Compilation"
