@@ -97,6 +97,21 @@ if [ ! -e $IMAGE_GZ_DTB ]; then
     exit 1
 fi
 
+echo "Packing Kernel"
+ZIP_NAME="Sigma-AnyKernel3"
+cd $WORKDIR
+unzip $ZIP_NAME.zip
+cd $WORKDIR/Sigma-AnyKernel3
+cp $IMAGE_GZ_DTB .
+cp $DTB $WORKDIR/Sigma-AnyKernel3/dtb
+cp $DTBO .
+Build Configs
+# Pack File
+time=$(TZ='Asia/Jakarta' date +"%Y-%m-%d %H:%M:%S")
+find ./ * -exec touch -m -d "$time" {} \;
+zip -r9 $ZIP_NAME.zip *
+cp *.zip $WORKDIR/out
+
 cp $IMAGE_GZ $WORKDIR/out
 cp $IMAGE_GZ_DTB $WORKDIR/out
 cp $DTBO $WORKDIR/out
