@@ -53,6 +53,12 @@ rm -rf Clang.tar.gz
 CLANG_VERSION="$($CLANG_DIR/clang --version | head -n 1)"
 LLD_VERSION="$($CLANG_DIR/ld.lld --version | head -n 1)"
 
+# KernelSU
+echo "Add KernelSU"
+cd $KERNEL_DIR
+rm -rf KernelSU
+curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
+
 echo "Cloning Kernel Source "
 git clone --depth=1 $KERNEL_GIT -b $KERNEL_BRANCH $KERNEL_DIR
 cd $KERNEL_DIR
