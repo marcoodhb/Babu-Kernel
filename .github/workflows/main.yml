@@ -1,4 +1,4 @@
-name: Earth Kernel with KSU
+name: Sigma Kernel
 
 on:
   workflow_dispatch:
