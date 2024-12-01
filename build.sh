@@ -7,8 +7,8 @@ CLANG_DLINK="https://github.com/ZyCromerZ/Clang/releases/download/19.0.0git-2024
 CLANG_DIR="$WORKDIR/Clang/bin"
 
 # Kernel Source
-KERNEL_NAME="XKernel"
-KERNEL_GIT="https://github.com/Redmi12C-Dev/android_kernel_xiaomi_earth.git"
+KERNEL_NAME="SigmaKernel"
+KERNEL_GIT="https://github.com/XeroMz69/Bumi-Kernel-Tree.git"
 KERNEL_BRANCH="ksu"
 KERNEL_DIR="$WORKDIR/$KERNEL_NAME"
 
@@ -36,7 +36,7 @@ MAKE_BOOTIMG="false"
 PERMISSIVE_BOOTIMG="false"
 
 export KBUILD_BUILD_USER="Xero"
-export KBUILD_BUILD_HOST="AYD"
+export KBUILD_BUILD_HOST="XeroMz"
 
 cd $WORKDIR
 
@@ -58,20 +58,10 @@ git clone --depth=1 $KERNEL_GIT -b $KERNEL_BRANCH $KERNEL_DIR
 cd $KERNEL_DIR
 KERNEL_HEAD_HASH=$(git log --pretty=format:'%H' -1)
 
-Patching the KernelSU
-rm -rf KernelSU
-curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
-echo "
-CONFIG_KPROBES=y
-CONFIG_HAVE_KPROBES=y
-CONFIG_KPROBE_EVENTS=y
-" >> $DEVICES_DEFCONFIG
-
 # Build Kernel
 echo "Started Compilation"
 
 mkdir -p $WORKDIR/out
-
 args="PATH=$CLANG_DIR:$PATH \
 ARCH=arm64 \
 SUBARCH=arm64 \
@@ -94,7 +84,6 @@ HOSTCXX=clang++ \
 LLVM=1 \
 LTO=full"
 
-
 # LINUX KERNEL VERSION
 rm -rf out
 make O=out $args $DEVICE_DEFCONFIG
@@ -113,34 +102,6 @@ cp $IMAGE_GZ_DTB $WORKDIR/out
 cp $DTBO $WORKDIR/out
 cp $DTBO_EARTH $WORKDIR/out
 cp $DTB $WORKDIR/out
-
-# Make boot.img
-if [ $MAKE_BOOTIMG = "true" ]; then
-    # Setup magiskboot
-    cd $WORKDIR && mkdir magiskboot
-    aria2c -s16 -x16 -k1M $MAGISKBOOT_DLINK -o magiskboot.7z
-    7z e magiskboot.7z out/x86_64/magiskboot -omagiskboot/
-    rm -rf magiskboot.7z
-
-    # Download original boot.img
-    aria2c -s16 -x16 -k1M $ORIGIN_BOOTIMG_DLINK -o magiskboot/boot.img
-    cd $WORKDIR/magiskboot
-
-    # Packing
-    $MAGISKBOOT unpack -h boot.img
-    cp $IMAGE ./Image.gz-dtb
-    $MAGISKBOOT split Image.gz-dtb
-    cp $DTB ./dtb
-    $MAGISKBOOT repack boot.img
-    mv new-boot.img $WORKDIR/out/$ZIP_NAME.img
-
-    # SElinux Permissive
-    if [ $PERMISSIVE_BOOTIMG = "true" ]; then
-        sed -i '/cmdline=/ s/$/ androidboot.selinux=permissive/' header
-        $MAGISKBOOT repack boot.img
-        mv new-boot.img $WORKDIR/out/$ZIP_NAME-Permissive.img
-    fi
-fi
 
 cd $WORKDIR/out
 
