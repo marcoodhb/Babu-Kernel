@@ -8,7 +8,7 @@ CLANG_DIR="$WORKDIR/Clang/bin"
 
 # Kernel Source
 KERNEL_NAME="SigmaKernel"
-KERNEL_GIT="https://github.com/xiaomi-mt6768-devs/kernel_xiaomi_mt6768"
+KERNEL_GIT="https://github.com/rexix01/kernel_xiaomi_mt6768"
 KERNEL_BRANCH="lineage-21"
 KERNEL_DIR="$WORKDIR/$KERNEL_NAME"
 
@@ -55,8 +55,9 @@ cd $KERNEL_DIR
 rm -rf KernelSU
 curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
 
-wget https://raw.githubusercontent.com/YayangProject/kernel_xiaomi_mt6768/refs/heads/gale-changes-only/arch/arm64/configs/gale_defconfig
-mv gale_defconfig arch/arm64/configs/.
+echo "CONFIG_HAVE_KPROBES=y
+CONFIG_KPROBE_EVENTS=y
+CONFIG_KSU=y" >> $DEVICE_DEFCONFIG
 
 # Build Kernel
 echo "Started Compilation"
