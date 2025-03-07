@@ -1,6 +1,11 @@
 name: Sigma Kernel
 
 on:
+  # push:
+  #   branches:
+  #     - clang/*
+  schedule:
+   - cron: '0 7 * * 1'
   workflow_dispatch:
 
 jobs:
@@ -9,6 +14,13 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Send Telegram Message
+        uses: cbrgm/telegram-github-action@v1
+        with:
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          message: "Build Started!!"
+    
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -37,3 +49,16 @@ jobs:
             Always Mewing
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Send Telegram Notification on New Release
+        uses: cbrgm/telegram-github-action@v1
+        with:
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          message: |
+            Sigma Kernel
+            Release Name: ${{ github.event.release.name }}
+            Tag: ${{ github.event.release.tag_name }}
+            Actor: ${{ github.actor }}
+            Repository: ${{ github.repository }}
+            Check it out: ${{ github.event.release.html_url }}
