@@ -34,11 +34,12 @@ jobs:
           sudo apt remove firefox
           sudo apt autoremove
           sudo apt-get update && sudo apt-get upgrade -y
-          sudo apt-get install git ccache automake flex lzop bison gperf build-essential zip curl zlib1g-dev g++-multilib libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng maven libssl-dev pwgen libswitch-perl policycoreutils minicom libxml-sax-base-perl libxml-simple-perl bc libc6-dev-i386 lib32ncurses6-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc unzip device-tree-compiler python3 -y
-
+          git clone https://github.com/akhilnarang/scripts && cd scripts && ./setup/android_build_env.sh
+     
       - name: Build Kernel
         run: |
           cd $GITHUB_WORKSPACE
+          rm -rf scripts
           sudo bash build.sh
           sudo chmod -R 0777 ./*
 
