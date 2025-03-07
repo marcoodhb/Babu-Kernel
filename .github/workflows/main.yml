@@ -22,8 +22,8 @@ jobs:
           message: |
             Sigma Kernel Build Started!
             Commit: ${{ github.event.head_commit.message }}
-            Actor: ${{ github.actor }}
-            View log: https://github.com/${{ github.repository }}/actions
+            Author: ${{ github.actor }}
+            View log: https://github.com/${{ github.repository }}/actions/${{ github.run_id }}
           
       - name: Checkout code
         uses: actions/checkout@v4
@@ -34,7 +34,7 @@ jobs:
           sudo apt remove firefox
           sudo apt autoremove
           sudo apt-get update && sudo apt-get upgrade -y
-          sudo apt-get install git ccache automake flex lzop bison gperf build-essential zip curl zlib1g-dev g++-multilib libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng maven libssl-dev pwgen libswitch-perl policycoreutils minicom libxml-sax-base-perl libxml-simple-perl bc libc6-dev-i386 lib32ncurses5-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc unzip device-tree-compiler python3 -y
+          sudo apt-get install git ccache automake flex lzop bison gperf build-essential zip curl zlib1g-dev g++-multilib libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng maven libssl-dev pwgen libswitch-perl policycoreutils minicom libxml-sax-base-perl libxml-simple-perl bc libc6-dev-i386 lib32ncurses6-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc unzip device-tree-compiler python3 -y
 
       - name: Build Kernel
         run: |
