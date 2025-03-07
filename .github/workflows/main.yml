@@ -23,7 +23,7 @@ jobs:
             Sigma Kernel Build Started!
             Commit: ${{ github.event.head_commit.message }}
             Author: ${{ github.actor }}
-            View log: https://github.com/${{ github.repository }}/actions/${{ github.run_id }}
+            View log: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           
       - name: Checkout code
         uses: actions/checkout@v4
