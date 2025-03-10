@@ -30,7 +30,7 @@ jobs:
 
       - name: Setup Environment‌‌
         run: |
-          cd $GITHUB_WORKSPACE
+          cd /tmp
           sudo apt remove firefox
           sudo apt autoremove
           sudo apt-get update && sudo apt-get upgrade -y
@@ -40,7 +40,6 @@ jobs:
       - name: Build Kernel
         run: |
           cd $GITHUB_WORKSPACE
-          rm -rf scripts
           sudo bash build.sh
           sudo chmod -R 0777 ./*
 
