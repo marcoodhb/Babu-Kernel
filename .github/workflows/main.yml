@@ -48,8 +48,8 @@ jobs:
         with:
           files: |
             ${{ github.workspace }}/out/*
-          name: Kernel-${{ github.run_id }}
-          tag_name: ${{ github.run_id }}
+          name: Sigma-Kernel-${{ github.run_id }}
+          tag_name: Sigma-Kernel-${{ github.run_id }}
           body: |
             Always Mewing
         env:
@@ -62,8 +62,8 @@ jobs:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           message: |
             Sigma Kernel
-            Release Name: ${{ github.event.release.name }}
-            Tag: ${{ github.event.release.tag_name }}
-            Actor: ${{ github.actor }}
-            Repository: ${{ github.repository }}
-            Check it out: ${{ github.event.release.html_url }}
+            Release Name: Sigma-Kernel-${{ github.run_id }}
+            Tag: Sigma-Kernel-${{ github.run_id }}
+            Repository: https://github.com/${{ github.repository }}
+            Download Kernel: https://github.com/${{ github.repository }}/releases/download/Sigma-Kernel-${{ github.run_id }}/Sigma-Kernel.zip
+            Build: @"${{ github.actor }}"
