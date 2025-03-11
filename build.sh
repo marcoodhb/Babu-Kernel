@@ -89,7 +89,7 @@ echo "Packing Kernel"
 ZIP_NAME="Sigma-Kernel"
 cd $WORKDIR
 unzip $ZIP_NAME.zip
-cd $WORKDIR/"$ZIP_NAME"
+cd $WORKDIR/Sigma-AnyKernel3
 rm -f dtb
 cp $IMAGE_GZ_DTB .
 cp $DTB $WORKDIR/$ZIP_NAME/dtb
