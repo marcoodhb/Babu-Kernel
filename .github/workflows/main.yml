@@ -3,9 +3,9 @@ name: Sigma Kernel
 on:
   # push:
   #   branches:
-  #     - clang/*
+  #     - main/*
   schedule:
-   - cron: '0 7 * * 1'
+   - cron: '0 0 * * 1'
   workflow_dispatch:
 
 jobs:
