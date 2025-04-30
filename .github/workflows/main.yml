@@ -13,18 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    steps:
-      - name: Send Telegram Message
-        uses: cbrgm/telegram-github-action@v1
-        with:
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          to: ${{ secrets.TELEGRAM_CHAT_ID }}
-          message: |
-            Sigma Kernel Build Started!
-            Commit: ${{ github.event.head_commit.message }}
-            Author: @${{ github.actor }}
-            View log: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          
+    steps:    
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -61,7 +50,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           message: |
-            Sigma Kernel
+            Sigma Kernel build finished 
             Release Name: Sigma-Kernel-${{ github.run_id }}
             Tag: Sigma-Kernel-${{ github.run_id }}
             Repository: https://github.com/${{ github.repository }}
