@@ -1,6 +1,6 @@
 name: Sigma Kernel
 
- on:
+on:
    push:
      branches:
        - main/*
