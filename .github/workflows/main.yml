@@ -1,9 +1,9 @@
 name: Sigma Kernel
 
 on:
-   push:
-     branches:
-       - main/*
+#   push:
+#     branches:
+#       - main/*
 
 jobs:
   build:
