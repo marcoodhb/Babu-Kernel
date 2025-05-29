@@ -3,13 +3,13 @@
 WORKDIR="$(pwd)"
 
 # Clang
-CLANG_DLINK="https://github.com/XeroMz69/Clang/releases/download/Xero-Clang-20250303.1/Xero-Clang-21.0.0git-20250303.tar.gz"
+CLANG_DLINK="https://github.com/XeroMz69/Clang/releases/download/Xero-Clang-20250526.1/Xero-Clang-21.0.0git-20250526.tar.gz"
 CLANG_DIR="$WORKDIR/Clang/bin"
 
 # Kernel Source
 KERNEL_NAME="SigmaKernel"
 KERNEL_GIT="https://github.com/XeroMz69/Bumi-Kernel-Tree.git"
-KERNEL_BRANCH="lineage-21"
+KERNEL_BRANCH="ksu-linux-lts"
 KERNEL_DIR="$WORKDIR/$KERNEL_NAME"
 
 # Build
@@ -47,6 +47,8 @@ cd $KERNEL_DIR
 KERNEL_HEAD_HASH=$(git log --pretty=format:'%H' -1)
 
 # Build Kernel
+rm -rf KernelSU-Next
+curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/refs/heads/next/kernel/setup.sh" | bash -s next-susfs
 echo "Started Compilation"
 
 mkdir -p $WORKDIR/out
