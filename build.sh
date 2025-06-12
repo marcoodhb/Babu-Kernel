@@ -72,7 +72,7 @@ HOSTLD=ld.lld \
 HOSTCC=clang \
 HOSTCXX=clang++ \
 LLVM=1 \
-LTO=full"
+LTO=thin"
 
 # LINUX KERNEL VERSION
 rm -rf out
