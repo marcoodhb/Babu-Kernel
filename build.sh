@@ -79,7 +79,7 @@ rm -rf out
 make O=out $args $DEVICE_DEFCONFIG
 KERNEL_VERSION=$(make O=out $args kernelversion | grep "4.19")
 echo "LINUX KERNEL VERSION : $KERNEL_VERSION"
-make O=out $args -j1 | tee "$WORKDIR/out/build.log"
+make O=out CONFIG_DEBUG_SECTION_MISMATCH=y $args -j1 | tee "$WORKDIR/out/build.log"
 
 echo "Checking builds"
 if [ ! -e $IMAGE_GZ_DTB ]; then
