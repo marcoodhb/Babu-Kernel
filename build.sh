@@ -8,7 +8,7 @@ CLANG_DIR="$WORKDIR/Clang/bin"
 
 # Kernel Source
 KERNEL_NAME="SigmaKernel"
-KERNEL_GIT="https://github.com/XeroMz69/Bumi-Kernel-Tree.git"
+KERNEL_GIT="https://github.com/marcoodhb/Bumi-Kernel-Tree.git"
 KERNEL_BRANCH="ksu"
 KERNEL_DIR="$WORKDIR/$KERNEL_NAME"
 
